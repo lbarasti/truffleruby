@@ -1,0 +1,24 @@
+# Ignore build artifacts that could conflict with Docker build
+mxbuild/
+**/build/
+
+# Compiled objects and libraries (** needed to match in subdirectories)
+**/*.o
+**/*.so
+**/*.dylib
+**/*.a
+
+# Generated Makefiles with hardcoded host paths (exclude all, then whitelist source ones)
+src/main/c/**/Makefile
+!src/main/c/Makefile
+!src/main/c/cext-trampoline/Makefile
+!src/main/c/prism-gem/Makefile
+!src/main/c/yarp/Makefile
+src/main/c/**/*.mk
+
+# Note: .git/ is needed by mx sforceimports, don't exclude it
+
+# Ignore IDE files
+.idea/
+*.iml
+.vscode/
